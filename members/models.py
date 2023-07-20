@@ -1,9 +1,20 @@
 from django.db import models
 
+GENDER_CHOICES = (
+    ('M', 'Male'),
+    ('F', 'Female')
+)
+
+MARITAL_STATUS = (
+    ('S', 'Single'),
+    ('R', 'Married'),
+    ('D', 'Divorced')
+)
+
 # Create your models here.
 class Member(models.Model):
     full_name = models.CharField(max_length=200)
-    gender = models.IntegerField(choices=((0, 'Male'), (1, 'Female')))
+    gender = models.CharField(choices=GENDER_CHOICES, max_length=200)
     phone = models.CharField(max_length=10)
     email = models.EmailField(max_length=100)
     date_of_birth = models.DateField()
@@ -26,8 +37,8 @@ class Member(models.Model):
     baptismal_officiating_minister = models.CharField(
         max_length=200, null=True)
     zone = models.IntegerField()
-    marital_status = models.IntegerField(
-        choices=((0, "Single"), (1, "Married")))
+    marital_status = models.CharField(
+        choices=MARITAL_STATUS, max_length=200)
     marital_officiating_minister = models.CharField(max_length=200, null=True)
     place_of_marriage = models.CharField(max_length=200, null=True)
     year_of_marriage_registered = models.DateField()

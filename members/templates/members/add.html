@@ -1,4 +1,6 @@
 {% extends "members/base.html" %}
+{% load static %}
+{% load bootstrap5 %}
 
 {% block body %}
     <h3 class="text-center m-4">Add Member</h3>
@@ -17,7 +19,7 @@
                     <div class="card-body">
                       <form action="{% url 'add' %}" method="POST">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {% bootstrap_form form %}
                         <button type="submit" class="btn btn-primary">Add</button>
                         <a href="{% url 'index' %}" class="btn btn-secondary">Cancel</a>
                       </form>
