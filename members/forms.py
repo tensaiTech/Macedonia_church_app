@@ -1,0 +1,70 @@
+from django import forms
+from .models import Member
+
+class MemberForm(forms.ModelForm):
+    class Meta:
+        model = Member
+        fields = [ 'full_name', 'gender', 'phone', 'email', 'date_of_birth', 'place_of_birth', 'hometown', 'occupation', 'educational_background', 'house_number', 'residental_area', 'residental_street', 'father_name', 'father_hometown', 'mother_name', 'mother_hometown', 'former_assembly', 'former_district', 'former_region_of_district_assembly', 'place_of_baptism', 'baptismal_officiating_minister', 'zone','marital_status', 'marital_officiating_minister', 'place_of_marriage', 'year_of_marriage_registered', 'name_of_partner', 'name_of_denomination_of_partner', 'partner_hometown' ]
+        labels = {
+          'full_name': 'Full Name',
+          'gender': 'Gender',
+          'phone': 'Phone',
+          'email': 'Email',
+          'date_of_birth': 'Date of Birth',
+          'hometown': 'Hometown',
+          'occupation': 'Occupation',
+          'educational_background': 'Educational Background',
+          'house_number': 'House number',
+          'residental_area': 'Residential Area',
+          'residental_street': 'Residential Street',
+          'father_name': 'Name of Father',
+          'father_hometown': 'Hometown of Father',
+          'mother_name': 'Name of Mother',
+          'mother_hometown': 'Hometown of Mother',
+          'former_assembly': 'Former Assembly',
+          'former_district': 'Former District',
+          'former_region_of_district_assembly': 'Former Region of District Assembly',
+          'place_of_baptism': 'Place of Baptism',
+          'baptismal_officiating_minister': 'Baptismal Officiating Minister',
+          ' zone': 'Zone',
+          'marital_status': 'Marital Status',
+          'marital_officiating_minister': 'Marital Officiating Minister',
+          'place_of_marriage': 'Place of Marriage',
+          'year_of_marriage_registered': 'Year of Marriage Registered',
+          'name_of_partner': 'Name of Partner',
+          'name_of_denomination_of_partner': 'Name of Denomination of Partner',
+          'partner_hometown': 'Hometown of Partner',
+
+        }
+        widgets = {
+            'full_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'gender': forms.TextInput(attrs={'class': 'form-control'}), 
+            'phone': forms.NumberInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}), 
+            'date_of_birth': forms.NumberInput(attrs={'class': 'form-control'}), 
+            'place_of_birth': forms.NumberInput(attrs={'class': 'form-control'}), 
+            'hometown': forms.TextInput(attrs={'class': 'form-control'}), 
+            'occupation': forms.TextInput(attrs={'class': 'form-control'}),
+            'educational_background': forms.TextInput(attrs={'class': 'form-control'}),
+            'house_number': forms.NumberInput(attrs={'class': 'form-control'}),
+            'residental_area': forms.TextInput(attrs={'class': 'form-control'}),
+            'residental_street': forms.TextInput(attrs={'class': 'form-control'}),
+            'father_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'father_hometown': forms.TextInput(attrs={'class': 'form-control'}),
+            'mother_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'mother_hometown': forms.TextInput(attrs={'class': 'form-control'}),
+            'former_assembly': forms.TextInput(attrs={'class': 'form-control'}),
+            'former_district': forms.TextInput(attrs={'class': 'form-control'}),
+            'former_region_of_district_assembly': forms.TextInput(attrs={'class': 'form-control'}),
+            'place_of_baptism': forms.TextInput(attrs={'class': 'form-control'}),
+            'baptismal_officiating_minister': forms.TextInput(attrs={'class': 'form-control'}),
+            'zone': forms.TextInput(attrs={'class': 'form-control'}),
+            'marital_status': forms.NumberInput(attrs={'class': 'form-control'}),
+            'marital_officiating_minister': forms.TextInput(attrs={'class': 'form-control'}),
+            'place_of_marriage': forms.TextInput(attrs={'class': 'form-control'}),
+            'year_of_marriage_registered': forms.NumberInput(attrs={'class': 'form-control'}),
+            'name_of_partner': forms.TextInput(attrs={'class': 'form-control'}),
+            'name_of_denomination_of_partner': forms.TextInput(attrs={'class': 'form-control'}),
+            'partner_hometown': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+       
