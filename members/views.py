@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -7,10 +8,19 @@ from .forms import MemberForm
 
 
 # Create your views here.
+@login_required
 def index(request):
-    return render(request, 'members/index.html', {
-        'members': Member.objects.all()
-    })
+    members = Member.objects.all()
+    males = Member.objects.filter(gender='M')
+    females = Member.objects.filter(gender='F')
+    married = Member.objects.filter(marital_status='R')
+    context = {
+        'members': members,
+        'males': males,
+        'females': females,
+        'married': married
+    }
+    return render(request, 'members/index.html', context)
 
 
 def view_member(request, id):

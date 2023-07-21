@@ -2,6 +2,32 @@
 
 {% block body %}
 <h3 class="m-4">All Members</h3>
+<div class="row p-5">
+    <div class="col-md-3">
+        <div class="bg-primary p-4 d-flex flex-column justify-content-center align-items-center">
+            <h5 class="text-white">Members</h5>
+            <h2 class="text-white">{{ members.count }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="bg-primary p-4 d-flex flex-column justify-content-center align-items-center">
+            <h5 class="text-white">Males</h5>
+            <h2 class="text-white">{{ males.count }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="bg-primary p-4 d-flex flex-column justify-content-center align-items-center">
+            <h5 class="text-white">Females</h5>
+            <h2 class="text-white">{{ females.count }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="bg-primary p-4 d-flex flex-column justify-content-center align-items-center">
+            <h5 class="text-white">Married</h5>
+            <h2 class="text-white">{{ married.count }}</h2>
+        </div>
+    </div>
+</div>
 <div class="row">
   <div class="col-12">
     {% if members %}
@@ -40,7 +66,7 @@
                         <i class="fa-solid fa-circle-info fa-lg"></i>
                       </button>
 
-                      <!-- Modal- View Member-->
+                      <!-- Modal-View Member-->
                       <div class="modal" id="myModal{{member.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -109,12 +135,11 @@
               </tbody>
             </table> 
           </div>
-        </p>
+        </div>
       </div>
     </div>
     {% else %}
       <h5 class="alert alert-primary ms-4 me-4">No Member Records</h5>
     {% endif %}
   </div>
-</div>          
 {% endblock %}
