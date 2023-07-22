@@ -1,7 +1,6 @@
 {% extends "members/base.html" %}
 
 {% block body %}
-<h3 class="m-4">All Members</h3>
 <div class="row p-5">
     <div class="col-md-3">
         <div class="bg-primary p-4 d-flex flex-column justify-content-center align-items-center">
@@ -26,8 +25,31 @@
             <h5 class="text-white">Married</h5>
             <h2 class="text-white">{{ married.count }}</h2>
         </div>
-    </div>
+    </div>  
+    <div class="mt-4">
+      <h5>{% now "F" %} Birthday Celebrations </h5>    
+    <div class="mt-2">
+          {% load tz %}  <!-- Load the timezone template tags if not already loaded -->
+          {% if current_months_birthdays %}
+                <ol class="list-group list-group-numbered">
+                  {% for member in current_months_birthdays %}
+                      <!-- <li>{{ user.name }} - {{ user.date_of_birth|date:"F d" }}</li> -->
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{member.full_name}}</div>
+                            {{member.date_of_birth|date:"F d"}}
+                          </div>
+                        </li>
+                  {% endfor %}
+                  </ol>
+          {% else %}
+              <p>No upcoming birthdays.</p>
+          {% endif %}
+      </div>
+    </div>  
+  </div>
 </div>
+
 <div class="row">
   <div class="col-12">
     {% if members %}
